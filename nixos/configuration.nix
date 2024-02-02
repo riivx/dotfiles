@@ -19,13 +19,6 @@
     };
   };
 
-  # virtualisation
-  programs.virt-manager.enable = true;
-  virtualisation = {
-    podman.enable = true;
-    libvirtd.enable = true;
-  };
-
   # dconf
   programs.dconf.enable = true;
 
@@ -42,6 +35,10 @@
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
+      displayManager.autoLogin = {
+          enable = true;
+          user = "riichi";
+      };
     };
     printing.enable = true;
     flatpak.enable = true;
@@ -54,23 +51,12 @@
     HandleLidSwitchExternalPower=ignore
   '';
 
-  # kde connect
-  networking.firewall = rec {
-    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
-
   # user
-  users.users.${username} = {
+  users.users.riichi = {
     isNormalUser = true;
-    initialPassword = username;
     extraGroups = [
-      "nixosvmtest"
       "networkmanager"
       "wheel"
-      "audio"
-      "video"
-      "libvirtd"
     ];
   };
 
@@ -109,5 +95,5 @@
     };
   };
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
