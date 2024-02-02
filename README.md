@@ -73,7 +73,5 @@ bindle=,XF86AudioRaiseVolume,  exec, ags -r 'audio.speaker.volume += 0.05; indic
 bindle=,XF86AudioLowerVolume,  exec, ags -r 'audio.speaker.volume -= 0.05; indicator.speaker()'
 ```
 
-Please understand that this is my personal configuration for my setup.
-If something doesn't work, feel free to open up an issue or message me,
-and I will try to help. However, before doing that, make sure you read the error output,
-use some common sense, and try to solve the problem yourself if it is something simple.
+this was forked from https://github.com/Aylur/dotfiles
+my personal config, still WIP, might not even work
