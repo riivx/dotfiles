@@ -42,18 +42,9 @@ in
     inherit username homeDirectory;
 
     sessionVariables = {
-      QT_XCB_GL_INTEGRATION = "none"; # kde-connect
-      NIXPKGS_ALLOW_UNFREE = "1";
-      NIXPKGS_ALLOW_INSECURE = "1";
-      BAT_THEME = "base16";
-      GOPATH = "${homeDirectory}/.local/share/go";
-      GOMODCACHE="${homeDirectory}/.cache/go/pkg/mod";
+
     };
 
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
-  };
 
   gtk.gtk3.bookmarks = [
     "file://${homeDirectory}/Documents"
@@ -69,13 +60,5 @@ in
     "file://${homeDirectory}/.local/share Local"
   ];
 
-  services = {
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
-  };
-
   programs.home-manager.enable = true;
-  home.stateVersion = "21.11";
 }
